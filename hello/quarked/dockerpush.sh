@@ -4,7 +4,5 @@
 
 docker login docker.io
 
-docker tag $1 docker.io/burrsutter/quarked:1.0.2
-
-docker push docker.io/burrsutter/quarked:1.0.2
+docker push docker.io/geoand/quarked:1.0.0
 

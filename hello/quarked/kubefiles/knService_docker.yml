@@ -11,7 +11,7 @@ spec:
             autoscaling.knative.dev/target: "10"      
         spec:
           container:
-            image: docker.io/burrsutter/quarked:1.0.2
+            image: docker.io/geoand/quarked:1.0.0
             resources:
               requests: 
                 memory: "50Mi" 
@@ -21,7 +21,7 @@ spec:
                 cpu: "75m" 
             livenessProbe:
               httpGet:
-                path: /healthz
+                path: /health/live
             readinessProbe:
               httpGet:
-                path: /healthz
+                path: /health/ready

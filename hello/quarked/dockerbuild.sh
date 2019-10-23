@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -f kubefiles/Dockerfile -t dev.local/burrsutter/quarked:1.0.2 .
+docker build -f kubefiles/Dockerfile -t geoand/quarked:1.0.0 .
