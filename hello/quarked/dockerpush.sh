@@ -4,5 +4,5 @@
 
 docker login docker.io
 
-docker push docker.io/geoand/quarked:1.0.0
+docker push docker.io/geoand/quarked:0.1
 

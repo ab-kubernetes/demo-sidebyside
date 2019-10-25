@@ -1,5 +1,5 @@
 #!/bin/bash
 
-KSVC_URL="$(kubectl -n sidebyside get ksvc quarked -o jsonpath='{.status.url}')"
+KSVC_URL="$(oc -n sidebyside get ksvc quarked -o jsonpath='{.status.url}')"
 
-siege -r 1 -c 40 -d 2 -v $KSVC_URL
+siege -r 10 -c 200 -d 2 -v $KSVC_URL
