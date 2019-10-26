@@ -9,19 +9,23 @@ spec:
         metadata:
           annotations:
             autoscaling.knative.dev/target: "10"
-        spec:          
+            sidecar.istio.io/inject: "false"
+        spec:
           container:
-            image: docker.io/burrsutter/booted:2.0.0
+            image: docker.io/geoand/booted:0.1
             resources:
               requests: 
-                memory: "150Mi" 
-                cpu: "500m" 
-              limits:
                 memory: "150Mi"
-                cpu: "500m" 
+                cpu: "500m"
+              limits:
+                memory: "200Mi"
+                cpu: "500m"
             livenessProbe:
+              initialDelaySeconds: 1
+              successThreshold: 1
+              periodSeconds: 1
               httpGet:
-                path: /healthz
+                path: /actuator/health
             readinessProbe:
               httpGet:
-                path: /healthz
+                path: /actuator/health
