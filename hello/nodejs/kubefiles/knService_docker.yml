@@ -20,8 +20,14 @@ spec:
                 memory: "100Mi"
                 cpu: "75m" 
             livenessProbe:
+              initialDelaySeconds: 0
+              successThreshold: 1
+              periodSeconds: 1
               httpGet:
                 path: /healthz
             readinessProbe:
+              initialDelaySeconds: 0
+              successThreshold: 1
+              periodSeconds: 1
               httpGet:
                 path: /healthz

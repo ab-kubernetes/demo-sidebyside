@@ -27,5 +27,8 @@ spec:
               httpGet:
                 path: /actuator/health
             readinessProbe:
+              initialDelaySeconds: 1
+              successThreshold: 1
+              periodSeconds: 1
               httpGet:
                 path: /actuator/health
