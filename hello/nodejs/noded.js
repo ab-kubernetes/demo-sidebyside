@@ -1,16 +1,40 @@
+'use strict';
 const os = require('os');
-const http = require('http');
-let cnt = 0;
+const Hapi = require('@hapi/hapi');
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'}); 
-   var url = req.url;
-    if(url ==='/healthz'){
-       res.write('<h1>contact us page<h1>'); 
-       res.end(); 
-    } else {
-        res.end(`Node Hello on ${os.hostname()}:${cnt++} \n`);
-    }
-   }).listen(8080, function(){
-    console.log("server start at port 8080"); 
+const init = async () => {
+
+    const server = Hapi.server({
+        port: 8080,
+        host: '0.0.0.0'
+    });
+
+    let cnt = 0;
+
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: (request, h) => {
+
+            return `Hapi Hello on ${os.hostname()}:${cnt++} \n`;
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/healthz',
+        handler: (request, h) => {
+            return '<h1>contact us page<h1>';
+        }
+    });
+
+    await server.start();
+    console.log('Server running on %s', server.info.uri);
+};
+
+process.on('unhandledRejection', (err) => {
+    console.log(err);
+    process.exit(1);
 });
+
+init();

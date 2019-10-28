@@ -6,5 +6,8 @@ WORKDIR /opt/app-root/src
 
 COPY noded.js .
 COPY package.json .
+COPY package-lock.json .
+
+RUN npm install
 
 CMD ["npm", "start"]

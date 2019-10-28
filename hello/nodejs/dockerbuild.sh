@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -f kubefiles/Dockerfile -t dev.local/burrsutter/noded:1.0.1 .
+docker build -f kubefiles/Dockerfile -t geoand/noded:0.1 .

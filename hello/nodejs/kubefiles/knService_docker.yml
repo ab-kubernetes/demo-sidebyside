@@ -11,13 +11,13 @@ spec:
             autoscaling.knative.dev/target: "10"
         spec:
           container:
-            image: docker.io/burrsutter/noded:1.0.1
+            image: docker.io/geoand/noded:0.1
             resources:
               requests: 
-                memory: "55Mi" 
+                memory: "50Mi"
                 cpu: "75m" 
               limits:
-                memory: "55Mi"
+                memory: "100Mi"
                 cpu: "75m" 
             livenessProbe:
               httpGet:

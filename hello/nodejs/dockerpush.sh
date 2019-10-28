@@ -4,7 +4,5 @@
 
 docker login docker.io
 
-docker tag $1 docker.io/burrsutter/noded:1.0.1
-
-docker push docker.io/burrsutter/noded:1.0.1
+docker push docker.io/geoand/noded:0.1
 
