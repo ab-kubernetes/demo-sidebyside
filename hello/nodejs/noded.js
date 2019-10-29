@@ -1,4 +1,7 @@
 'use strict';
+
+let hrstart = process.hrtime();
+
 const os = require('os');
 const Hapi = require('@hapi/hapi');
 
@@ -29,7 +32,8 @@ const init = async () => {
     });
 
     await server.start();
-    console.log('Server running on %s', server.info.uri);
+    let hrend = process.hrtime(hrstart);
+    console.log('Server running on %s - Started in %ds', server.info.uri, (hrend[1] / 1000000000).toFixed(3));
 };
 
 process.on('unhandledRejection', (err) => {
