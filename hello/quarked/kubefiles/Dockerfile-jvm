@@ -4,4 +4,4 @@ WORKDIR /app/
 COPY target/lib/* /app/lib/
 COPY target/*-runner.jar /app/
 EXPOSE 8080
-ENTRYPOINT ["java","-Xmx32M", "-Xms32m","-jar","quarked-spring-1.0.0-runner.jar"]
+ENTRYPOINT ["java","-Xmx100M", "-Xms32m","-jar","quarked-spring-1.0.0-runner.jar"]
