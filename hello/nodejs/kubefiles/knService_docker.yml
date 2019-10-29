@@ -17,17 +17,13 @@ spec:
                 memory: "50Mi"
                 cpu: "75m" 
               limits:
-                memory: "100Mi"
+                memory: "150Mi"
                 cpu: "75m" 
             livenessProbe:
-              initialDelaySeconds: 0
-              successThreshold: 1
-              periodSeconds: 1
+              initialDelaySeconds: 1
               httpGet:
                 path: /healthz
             readinessProbe:
-              initialDelaySeconds: 0
-              successThreshold: 1
-              periodSeconds: 1
+              initialDelaySeconds: 1
               httpGet:
                 path: /healthz

@@ -9,7 +9,6 @@ spec:
         metadata:
           annotations:
             autoscaling.knative.dev/target: "10"
-            sidecar.istio.io/inject: "false"
         spec:
           container:
             image: docker.io/geoand/quarked:0.1
@@ -18,17 +17,13 @@ spec:
                 memory: "50Mi" 
                 cpu: "75m" 
               limits:
-                memory: "50Mi"
-                cpu: "75m" 
+                memory: "150Mi"
+                cpu: "150m"
             livenessProbe:
-              initialDelaySeconds: 0
-              successThreshold: 1
-              periodSeconds: 1
+              initialDelaySeconds: 1
               httpGet:
                 path: /health/live
             readinessProbe:
-              initialDelaySeconds: 0
-              successThreshold: 1
-              periodSeconds: 1
+              initialDelaySeconds: 1
               httpGet:
                 path: /health/ready
