@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class GreetingController {
     
-    private String prefix = "Aloha";
+    private String prefix = "Yo";
     
     private String HOSTNAME =
        System.getenv().getOrDefault("HOSTNAME", "unknown");
