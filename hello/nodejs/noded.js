@@ -5,6 +5,8 @@ let hrstart = process.hrtime();
 const os = require('os');
 const Hapi = require('@hapi/hapi');
 
+let hostname = process.env.HOSTNAME || "unknown";
+
 const init = async () => {
 
     const server = Hapi.server({
@@ -18,8 +20,7 @@ const init = async () => {
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-
-            return `Hapi Hello on ${os.hostname()}:${cnt++} \n`;
+            return {name: `Hapi Hello :${cnt++}`, hostname: hostname};
         }
     });
 

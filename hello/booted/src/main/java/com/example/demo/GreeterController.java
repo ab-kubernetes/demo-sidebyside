@@ -8,15 +8,34 @@ public class GreeterController {
 
     private String prefix = "Hola Boot";
       
-    private static final String HOSTNAME =
+    private final String hostname =
             System.getenv().getOrDefault("HOSTNAME", "unknown");
 
 
     private int count = 0;
 
     @GetMapping("/")
-    public String greet() {
+    public Greeting greet() {
         count++;
-        return prefix + " " + HOSTNAME + ":" + count + "\n";
+        return new Greeting(prefix + " :" + count, hostname);
+    }
+
+    public static class Greeting {
+
+        private final String name;
+        private final String host;
+
+        public Greeting(String name, String host) {
+            this.name = name;
+            this.host = host;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getHost() {
+            return host;
+        }
     }
 }
