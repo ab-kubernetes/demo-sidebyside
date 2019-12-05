@@ -2,4 +2,4 @@
 
 KSVC_URL="$(oc -n sidebyside get ksvc quarked -o jsonpath='{.status.url}')"
 
-wrk2 -t2 -c100 -R200 -d60 $KSVC_URL > /dev/null 2>&1
+wrk2 -t2 -c100 -R200 -d120 $KSVC_URL > /dev/null 2>&1
