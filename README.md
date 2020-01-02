@@ -31,7 +31,6 @@ The purpose of the demo is to :
 - KNative Serving has been deployed using the `Serverless` Operator
 - Have access to a Docker server/daemon
 
-<<<<<<< HEAD
 ## Steps for replaying the lab
 
 ### Build 
