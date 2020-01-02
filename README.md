@@ -23,9 +23,9 @@ The purpose of the demo is to :
 
 #### Deployment
 
-Assuming a cluster with KNative Serving is already available, for each one of the applications apply the `kubefiles/knService_docker.yml` file (using `oc apply -f kubefiles/knService_docker.yml` for example).
-
-To force KNative to launch (and keep running) a single pod of the application, you can poll the application by executing the `./knpoller.sh` script (or `./knpoller_ocp4.sh` if using Openshift 4.x).
+- Create first a project where you will deploy the 3 applications : `oc new-project cool-demo`
+- For each one of the applications, apply the `kubefiles/knService_docker.yml` file using the command : `oc apply -f kubefiles/knService_docker.yml`.
+- To force KNative to launch (and keep running) a single pod of the application, you can poll the application by executing the `./knpoller.sh` script (or `./knpoller_ocp4.sh` if using Openshift 4.x).
 
 #### Running the actual scenario
 
