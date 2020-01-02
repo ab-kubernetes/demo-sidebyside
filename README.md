@@ -19,6 +19,10 @@ The purpose of the demo is to :
 - Openshift 4.2 is available
 - KNative Serving has been deployed using the `Serverless` Operator
 
+#### Extra
+
+The docker images referenced by the Kubernetes manifests that will be used have already been built and pushed. However if changes need to be made to the applications, then the images can be rebuilt and pushed using `./dockerbuild.sh` and `./dockerpush.sh` (which are specific to the username used by this scenario - in case you want to use your own just substitute `geoand` with your username in all places the former is used)
+
 ### Steps
 
 #### Deployment
