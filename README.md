@@ -47,7 +47,7 @@ which are available under the `hello/{booted,nodejs,quarkus}` folders.
 
 **NOTE**: The scripts must be executed within a terminal and from each application folder.
 
-**WARNING* : The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able to push the image to `docker.io`.
+**WARNING** : The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able to push the image to `docker.io`.
 To specify your docker user name, then just pass it as parameter to the script :
 ```bash
 ./dockerbuild.sh cmoulliard
