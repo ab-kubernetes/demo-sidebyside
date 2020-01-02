@@ -7,17 +7,17 @@ All the necessary code can be found under the `hello` folder. That directory con
 * Vanilla Spring Boot  - in the `booted` subdirectory
 * Node.js (using the Hapi.js framework) - in the `nodejs` subdirectory  
 
-The purpose of the demo is to deploy all 3 applications to a Kubernetes cluster that has KNative Service enabled
-and show how quickly the 3 different applications can scale up when receiving a burst of traffic.
-
-**Note**: KNative is deployed on OpenShift 4.2 using the Serverless operator
+The purpose of the demo is to :
+- Deploy all 3 applications to a Kubernetes cluster that has KNative Service enabled
+- Show how quickly the 3 different applications can scale up when receiving a burst of traffic
+- Demonstrate that a `Quarkus` application consumes the least amount of memory ;-)
 
 ## Instructions
 
 ### Pre-requisite
 
 - Openshift 4.2 is available
-- KNative Serving has been deployed using the Operator
+- KNative Serving has been deployed using the `Serverless` Operator
 
 ### Steps
 
