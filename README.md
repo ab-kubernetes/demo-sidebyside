@@ -31,7 +31,19 @@ The purpose of the demo is to :
 - KNative Serving has been deployed using the `Serverless` Operator
 - Have access to a Docker server/daemon
 
+<<<<<<< HEAD
 ## Steps for replaying the lab
+
+### Build 
+
+The docker images referenced by the Kubernetes manifests (deployment, service, ...) that we will use
+must be built and pushed under a local docker registry.
+
+They can be (re)build and (re)push using the following bash scripts `./dockerbuild.sh` and `./dockerpush.sh` which are available under
+`hello/{booted,nodejs,quarkus}` folder. The scripts must be executed within a terminal and from each application folder.
+
+!! The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able toi push the image to docker.
+Just pass a parameter to the script (eg : `./dockerbuild.sh cmoulliard`).
 
 ### Deployment
 

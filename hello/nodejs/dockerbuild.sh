@@ -1,3 +1,5 @@
 #!/bin/bash
 
-docker build -f kubefiles/Dockerfile -t geoand/noded:0.1 .
+prefix=${1:-snowdrop}
+
+docker build -f kubefiles/Dockerfile -t ${prefix}/noded:0.1 .
