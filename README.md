@@ -1,7 +1,6 @@
 ## Introduction
 
-This repository contains the code of the Devoxx Belgium [presentation](https://www.youtube.com/watch?v=9wJm8g83vqA&t=2678s)
-of Giorgios Andrianakis - part 2.
+This repository contains the code of the second part of Georgios Andrianakis's [presentation](https://www.youtube.com/watch?v=9wJm8g83vqA&t=2678s) at Devoxx Belgium 2019.
 
 All the necessary code can be found under the `hello` folder. That directory contains a `hello world application` written using 3 different frameworks: 
 * Quarkus with Spring API compatibility layer - in the `quarked` subdirectory
