@@ -38,7 +38,7 @@ The docker images referenced by the Kubernetes manifests (deployment, service, .
 must be built and pushed under a local docker registry.
 
 They can be (re)build and (re)push using the following bash scripts `./dockerbuild.sh` and `./dockerpush.sh` which are available under
-`hello/{booted,nodejs,quarkus}` folder
+`hello/{booted,nodejs,quarkus}` folder. The scripts must be executed within a terminal and from each application folder.
 
 **NOTE**: The name of the target image has been hard coded to the user `geoand` and can be changed with your own username. Just substitute `geoand` with your username in all places the former is used
 
