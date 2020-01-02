@@ -31,7 +31,7 @@ The purpose of the demo is to :
 
 For each of one of the application open two terminals.
 
-In the first terminal will have terminal execute the `./count_ready.sh` script which will constantly monitor and pring the number of pods the application is running.
+In the first terminal, execute the `./count_ready.sh` script which will constantly monitor the number of pods the application is running.
 
 In the second terminal execute `./knburst.sh` (or `./knburst_ocp4.sh` when using Openshift 4.x). The effect this has is to create a large burst of traffic that the application will have to handle.
 KNative will as a result of the traffic burst scale the application up. In this scenario KNative should spin up about 10 to 15 pods of each application.
