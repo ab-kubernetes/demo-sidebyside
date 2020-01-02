@@ -12,24 +12,40 @@ The purpose of the demo is to :
 - Show how quickly the 3 different applications can scale up when receiving a burst of traffic
 - Demonstrate that a `Quarkus` application consumes the least amount of memory ;-)
 
+## Table of contents
+
+  * [Instructions](#instructions)
+     * [Pre-requisite](#pre-requisite)
+     * [Steps](#steps)
+        * [Build](#build)
+        * [Deployment](#deployment)
+        * [Running the actual scenario](#running-the-actual-scenario)
+        * [Checking memory](#checking-memory)
+
 ## Instructions
 
 ### Pre-requisite
 
 - Openshift 4.2 is available
 - KNative Serving has been deployed using the `Serverless` Operator
-
-#### Extra
-
-The docker images referenced by the Kubernetes manifests that will be used have already been built and pushed. However if changes need to be made to the applications, then the images can be rebuilt and pushed using `./dockerbuild.sh` and `./dockerpush.sh` (which are specific to the username used by this scenario - in case you want to use your own just substitute `geoand` with your username in all places the former is used)
+- Have access to a Docker server/daemon
 
 ### Steps
+
+#### Build 
+
+The docker images referenced by the Kubernetes manifests (deployment, service, ...) that we will use
+must be built and pushed under a local docker registry.
+
+They can be (re)build and (re)push using the following bash scripts `./dockerbuild.sh` and `./dockerpush.sh`
+
+**NOTE**: The name of the target image has been hard coded to the user `geoand` and can be changed with your own username. Just substitute `geoand` with your username in all places the former is used
 
 #### Deployment
 
 - Create first a project where you will deploy the 3 applications : `oc new-project cool-demo`
 - For each one of the applications, apply the `kubefiles/knService_docker.yml` file using the command : `oc apply -f kubefiles/knService_docker.yml`.
-- To force KNative to launch (and keep running) a single pod of the application, you can poll the application by executing the `./knpoller.sh` script (or `./knpoller_ocp4.sh` if using Openshift 4.x).
+- To force KNative to launch (and keep running) a single pod of the application, you can poll the application by executing the `./knpoller.sh` script (or `./knpoller_ocp4.sh` if using OpenShift 4.x).
 
 #### Running the actual scenario
 
