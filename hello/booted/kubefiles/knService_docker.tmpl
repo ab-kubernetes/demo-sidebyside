@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
-  name: noded
+  name: booted
 spec:
   runLatest:
     configuration:
@@ -11,19 +11,19 @@ spec:
             autoscaling.knative.dev/target: "10"
         spec:
           container:
-            image: docker.io/geoand/noded:0.1
+            image: docker.io/snowdrop/booted:0.1
             resources:
               requests: 
-                memory: "50Mi"
-                cpu: "75m" 
-              limits:
                 memory: "150Mi"
-                cpu: "75m" 
+                cpu: "100m"
+              limits:
+                memory: "250Mi"
+                cpu: "250m"
             livenessProbe:
               initialDelaySeconds: 1
               httpGet:
-                path: /healthz
+                path: /actuator/health
             readinessProbe:
               initialDelaySeconds: 1
               httpGet:
-                path: /healthz
+                path: /actuator/health

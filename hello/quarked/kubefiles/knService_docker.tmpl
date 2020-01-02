@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
-  name: booted
+  name: quarked
 spec:
   runLatest:
     configuration:
@@ -11,19 +11,19 @@ spec:
             autoscaling.knative.dev/target: "10"
         spec:
           container:
-            image: docker.io/geoand/booted:0.1
+            image: docker.io/snowdrop/quarked:0.1
             resources:
               requests: 
-                memory: "150Mi"
-                cpu: "100m"
+                memory: "50Mi" 
+                cpu: "75m" 
               limits:
-                memory: "250Mi"
-                cpu: "250m"
+                memory: "150Mi"
+                cpu: "150m"
             livenessProbe:
               initialDelaySeconds: 1
               httpGet:
-                path: /actuator/health
+                path: /health/live
             readinessProbe:
               initialDelaySeconds: 1
               httpGet:
-                path: /actuator/health
+                path: /health/ready
