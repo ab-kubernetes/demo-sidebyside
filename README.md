@@ -16,11 +16,12 @@ The purpose of the demo is to :
 
   * [Instructions](#instructions)
      * [Pre-requisite](#pre-requisite)
-     * [Steps](#steps)
+     * [Steps for replaying the lab](#steps-for-replaying-the-lab)
         * [Build](#build)
         * [Deployment](#deployment)
         * [Running the actual scenario](#running-the-actual-scenario)
         * [Checking memory](#checking-memory)
+     * [Making changes to the scenario](#making-changes-to-the-scenario)   
 
 # Instructions
 
@@ -30,17 +31,7 @@ The purpose of the demo is to :
 - KNative Serving has been deployed using the `Serverless` Operator
 - Have access to a Docker server/daemon
 
-## Steps
-
-### Build 
-
-The docker images referenced by the Kubernetes manifests (deployment, service, ...) that we will use
-must be built and pushed under a local docker registry.
-
-They can be (re)build and (re)push using the following bash scripts `./dockerbuild.sh` and `./dockerpush.sh` which are available under
-`hello/{booted,nodejs,quarkus}` folder. The scripts must be executed within a terminal and from each application folder.
-
-**NOTE**: The name of the target image has been hard coded to the user `geoand` and can be changed with your own username. Just substitute `geoand` with your username in all places the former is used
+## Steps for replaying the lab
 
 ### Deployment
 
@@ -62,6 +53,19 @@ When executing the scenario, you will see that the Quarkus application will scal
 ### Checking memory
 
 If you are using a cluster that a dashboard showing memory consumption for each pod, you can see that the pods running the Quarkus application consume the least amount of memory.
+
+
+## Making changes to the scenario
+
+Each one of the Kubernetes manifests (deployment, service, ...) references a docker image (using the `geoand` namespace).
+If changes are to be made to an application, the corresponding docker image needs to be rebuilt and (re)pushed, perhaps to another docker registry. In such a case changes might need to be made to `./dockerbuild.sh` and / or `./dockerpush.sh` which are available under `hello/{booted,nodejs,quarked}` directories.
+
+**NOTE**: If another namespace is used (instead of `geoand`), just substitute `geoand` with your username in all places the former is used
+
+**NOTE**: Building the docker images doesn't require any additional tools other than Docker since the `kubefiles/Dockerfile` contains everything necessary to build each version of application.
+
+**NOTE**: `dockerpush.sh` assumes that the `docker` binary can login to the target registry without having to specify a username and password  
+
 
 
   
