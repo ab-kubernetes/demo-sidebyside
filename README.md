@@ -38,11 +38,20 @@ The purpose of the demo is to :
 The docker images referenced by the Kubernetes manifests (deployment, service, ...) that we will use
 must be built and pushed under a local docker registry.
 
-They can be (re)build and (re)push using the following bash scripts `./dockerbuild.sh` and `./dockerpush.sh` which are available under
-`hello/{booted,nodejs,quarkus}` folder. The scripts must be executed within a terminal and from each application folder.
+They can be (re)build and (re)push using the following bash scripts
+```bash
+./dockerbuild.sh
+./dockerpush.sh
+```
+which are available under the `hello/{booted,nodejs,quarkus}` folders. 
 
-The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able to push the image to `docker.io`.
-To specify your docker user name, then just pass it as parameter to the script (eg : `./dockerbuild.sh cmoulliard`).
+**NOTE**: The scripts must be executed within a terminal and from each application folder.
+
+**WARNING* : The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able to push the image to `docker.io`.
+To specify your docker user name, then just pass it as parameter to the script :
+```bash
+./dockerbuild.sh cmoulliard
+```
 
 Next, replace using the sed command the `snowdrop` username within the `knService_docker.tmpl` file to the appropriate username for each application.
 ```bash
