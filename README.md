@@ -1,16 +1,24 @@
 ## Introduction
 
-This repository contains the code code for the second part of my Devoxx Belgium [presentation](https://www.youtube.com/watch?v=9wJm8g83vqA&t=2678s) 
+This repository contains the code of the Devoxx Belgium [presentation](https://www.youtube.com/watch?v=9wJm8g83vqA&t=2678s)
+of Giorgios Andrianakis - part 2.
 
-## Instructions
-
-All the necessary code can be found in `hello`. That directory contains a hello world application written in 3 different styles.
+All the necessary code can be found under the `hello` folder. That directory contains a `hello world application` written using 3 different frameworks: 
 * Quarkus with Spring API compatibility layer - in the `quarked` subdirectory
 * Vanilla Spring Boot  - in the `booted` subdirectory
 * Node.js (using the Hapi.js framework) - in the `nodejs` subdirectory  
 
-The idea is to deploy all 3 applications to a Kubernetes cluster that has KNative Service enabled (which for the Devoxx talk was done using Openshift with Serverless capability installed),
+The purpose of the demo is to deploy all 3 applications to a Kubernetes cluster that has KNative Service enabled
 and show how quickly the 3 different applications can scale up when receiving a burst of traffic.
+
+**Note**: KNative is deployed on OpenShift 4.2 using the Serverless operator
+
+## Instructions
+
+### Pre-requisite
+
+- Openshift 4.2 is available
+- KNative Serving has been deployed using the Operator
 
 ### Steps
 
