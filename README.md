@@ -30,6 +30,7 @@ The purpose of the demo is to :
 - Openshift 4.2 is available
 - KNative Serving has been [deployed](https://docs.openshift.com/container-platform/4.2/serverless/installing-openshift-serverless.html#installing-serverless-operator_installing-openshift-serverless) using the `Serverless` Operator
 - Have access to a Docker server/daemon
+- [wrk2 tool](https://github.com/giltene/wrk2/wiki) installed
 
 ## Steps for replaying the lab
 
