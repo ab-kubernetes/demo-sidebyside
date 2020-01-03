@@ -48,6 +48,8 @@ which are available under the `hello/{booted,nodejs,quarkus}` folders.
 
 **NOTE**: The scripts must be executed within a terminal and from each application folder.
 
+**NOTE**: `dockerpush.sh` assumes that the `docker` client can login to the target `docker.io` using an registered account. 
+
 **WARNING** : The name of the target image has been hard coded to the user `snowdrop` and MUST be changed with your own username otherwise you will not be able to push the image to `docker.io`.
 To specify your docker user name, then just pass it as parameter to the script :
 ```bash
@@ -82,18 +84,7 @@ When executing the scenario, you will see that the Quarkus application will scal
 
 ### Checking memory
 
-If you are using a cluster that a dashboard showing memory consumption for each pod, you can see that the pods running the Quarkus application consume the least amount of memory.
-
-## Making changes to the scenario
-
-Each one of the Kubernetes manifests (deployment, service, ...) references a docker image (using the `geoand` namespace).
-If changes are to be made to an application, the corresponding docker image needs to be rebuilt and (re)pushed, perhaps to another docker registry. In such a case changes might need to be made to `./dockerbuild.sh` and / or `./dockerpush.sh` which are available under `hello/{booted,nodejs,quarked}` directories.
-
-**NOTE**: If another namespace is used (instead of `geoand`), just substitute `geoand` with your username in all places the former is used
-
-**NOTE**: Building the docker images doesn't require any additional tools other than Docker since the `kubefiles/Dockerfile` contains everything necessary to build each version of application.
-
-**NOTE**: `dockerpush.sh` assumes that the `docker` binary can login to the target registry without having to specify a username and password  
+If you are using a cluster that a dashboard showing memory consumption for each pod, you can see that the pods running the Quarkus application consume the least amount of memory. 
 
 
 
