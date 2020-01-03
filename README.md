@@ -28,7 +28,7 @@ The purpose of the demo is to :
 ## Pre-requisite
 
 - Openshift 4.2 is available
-- KNative Serving has been deployed using the `Serverless` Operator
+- KNative Serving has been [deployed](https://docs.openshift.com/container-platform/4.2/serverless/installing-openshift-serverless.html#installing-serverless-operator_installing-openshift-serverless) using the `Serverless` Operator
 - Have access to a Docker server/daemon
 
 ## Steps for replaying the lab
@@ -68,19 +68,19 @@ sed 's/snowdrop/cmoulliard/g' kubefiles/knService_docker.tmpl > kubefiles/knServ
 
 ### Running the actual scenario
 
-For each of one of the application open two terminals.
+- For each of one of the application open two terminals.
 
-In the first terminal, execute the `./count_ready.sh` script which will constantly monitor the number of pods the application is running.
+- In the first terminal, execute the `./count_ready.sh` script which will constantly monitor the number of pods the application is running.
 
-In the second terminal execute `./knburst.sh` (or `./knburst_ocp4.sh` when using Openshift 4.x). The effect this has is to create a large burst of traffic that the application will have to handle.
-KNative will as a result of the traffic burst scale the application up. In this scenario KNative should spin up about 10 to 15 pods of each application.
+- In the second terminal execute `./knburst.sh` (or `./knburst_ocp4.sh` when using Openshift 4.x).
+  The effect this has is to create a large burst of traffic that the application will have to handle.
+  KNative will as a result of the traffic burst scale the application up. In this scenario KNative should spin up about 10 to 15 pods of each application.
 
-When executing the scenario, you will see that the Quarkus application will scale up much faster that the other two, followed by Node.js.
+When executing the scenario, you will see that the Quarkus application will scale up `much faster` that the other two, followed by Node.js.
 
 ### Checking memory
 
 If you are using a cluster that a dashboard showing memory consumption for each pod, you can see that the pods running the Quarkus application consume the least amount of memory.
-
 
 ## Making changes to the scenario
 
