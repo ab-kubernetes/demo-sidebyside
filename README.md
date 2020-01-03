@@ -62,7 +62,7 @@ sed 's/snowdrop/cmoulliard/g' kubefiles/knService_docker.tmpl > kubefiles/knServ
 
 ### Deployment
 
-- Create first a project where you will deploy the 3 applications : `oc new-project cool-demo`
+- Create first a project where you will deploy the 3 applications : `oc new-project sidebyside` (using `sidebyside` as the namespace is important since the scripts use this namespace)
 - For each one of the applications, apply the `kubefiles/knService_docker.yml` file using the command : `oc apply -f kubefiles/knService_docker.yml`.
 - To force KNative to launch (and keep running) a single pod of the application, you can poll the application by executing the `./knpoller.sh` script (or `./knpoller_ocp4.sh` if using OpenShift 4.x).
 
