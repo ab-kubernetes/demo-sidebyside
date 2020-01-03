@@ -11,6 +11,6 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 FROM openjdk:8-jdk-alpine
 # FROM gcr.io/distroless/java:8
 WORKDIR /app/
-COPY --from=build /usr/src/app/target/*.jar /work/booted.jar
+COPY --from=build /usr/src/app/target/*.jar /app/booted.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-Xmx200M", "-Xms32m","-jar","/work/booted.jar"]
+ENTRYPOINT ["java","-Xmx200M", "-Xms32m","-jar", "booted.jar"]
